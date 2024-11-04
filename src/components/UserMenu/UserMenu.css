@@ -1,0 +1,36 @@
+.user-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.user-menu {
+  position: relative;
+}
+
+.menu-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #333;
+  color: #fff;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.menu-dropdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-dropdown li {
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.menu-dropdown li:hover {
+  background-color: #444;
+}

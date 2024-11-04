@@ -6,9 +6,7 @@ import "./LoginPage.css";
 const LoginPage = () => {
   return (
     <div className="login-page">
-      <div className="navbar">
-        Rent-A-Valla
-      </div>
+      
       <div className="content">
         <div className="login-page-left">
           <h1>Conecta con tu audiencia a lo grande. Tu mensaje, nuestra plataforma.</h1>

@@ -1,5 +1,6 @@
 // src/components/LoginForm.jsx
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axiosconexion from "../config/Axios";
 import "./LoginForm.css";
 
@@ -7,6 +8,7 @@ const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,15 +17,16 @@ const LoginForm = () => {
         email: email,
         peoplePassword: password,
       });
+      const token = response.data.token;
+      
+      // Guarda el token en localStorage
+      localStorage.setItem("token", token);
+
       setErrorMessage("");
-      console.log(response.data);
+      // Redirige a HomePage
+      navigate("/home");
     } catch (error) {
-      if (error.response && error.response.data) {
-        console.error("Error en la respuesta:", error.response.data);
-        setErrorMessage(error.response.data.errors?.[0]?.message || "Incorrect user, please try again.");
-      } else {
-        setErrorMessage("An error occurred. Please try again.");
-      }
+      setErrorMessage("Incorrect user, please try again.");
     }
   };
 

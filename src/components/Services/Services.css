@@ -1,0 +1,37 @@
+/* src/components/Services/Services.css */
+
+.services {
+    text-align: center;
+    padding: 2em;
+    background-color:  rgba(255, 255, 255, 0.8); /* Cambiado a fondo negro */
+    margin-top: 40px; /* Separación adicional del carrusel */
+    border-radius: 8px; /* Bordes redondeados */
+  }
+  
+  .services h2 {
+    color: #0a0a0a; /* Texto en blanco para destacar en el fondo negro */
+  }
+  
+  .services-grid {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    margin-top: 20px; /* Espacio adicional arriba de la cuadrícula */
+  }
+  
+  .service-card {
+    background-color: rgba(27, 26, 26, 0.2); /* Fondo semi-transparente para resaltar en fondo negro */
+    color: #0e0d0d; /* Texto en blanco */
+    padding: 1em;
+    text-decoration: none;
+    border-radius: 8px;
+    width: 200px; /* Ancho ajustado para centrar mejor */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para resaltar */
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .service-card:hover {
+    background-color: rgba(79, 167, 91, 0.3); /* Cambio de color al hacer hover */
+    transform: scale(1.05); /* Escala en hover */
+  }
+  
