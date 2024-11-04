@@ -18,7 +18,12 @@ const LoginForm = () => {
       setErrorMessage("");
       console.log(response.data);
     } catch (error) {
-      setErrorMessage("Incorrect user, please try again.");
+      if (error.response && error.response.data) {
+        console.error("Error en la respuesta:", error.response.data);
+        setErrorMessage(error.response.data.errors?.[0]?.message || "Incorrect user, please try again.");
+      } else {
+        setErrorMessage("An error occurred. Please try again.");
+      }
     }
   };
 
