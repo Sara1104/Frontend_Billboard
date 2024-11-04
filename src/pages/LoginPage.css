@@ -1,0 +1,93 @@
+/* src/pages/LoginPage.css */
+
+.login-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .navbar {
+    background-color: #000; /* Franja negra */
+    color: #fff;
+    padding: 1rem;
+    font-size: 1.5rem;
+    text-align: left;
+    padding-left: 2rem;
+  }
+  
+  .content {
+    display: flex;
+    flex: 1;
+  }
+  
+  .login-page-left {
+    flex: 1;
+    background: linear-gradient(to right, #957cac, #1e9e98, #b8d85f); /* Fondo degradado */
+    color: rgb(7, 6, 6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem;
+    text-align: left;
+  }
+  
+  .login-page-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("../assets/images/login-bg.png") no-repeat center center;
+    background-size: cover;
+    position: relative;
+  }
+  
+  /* Añade una capa de color detrás del formulario para mayor legibilidad */
+  .login-form-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semi-transparente */
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Sombra para oscurecer el fondo */
+  .login-page-right::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3); /* Oscurece un poco el fondo */
+    z-index: 0;
+  }
+  
+  .login-page-left h1 {
+    font-size: 2.8rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+  }
+  
+  .login-page-left p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-top: 0.5rem;
+  }
+  
+  
+  @media (max-width: 768px) {
+    .content {
+      flex-direction: column;
+    }
+  
+    .login-page-left,
+    .login-page-right {
+      width: 100%;
+      padding: 2rem;
+    }
+  }
+  
