@@ -1,93 +1,108 @@
 /* src/pages/LoginPage.css */
 
 .login-page {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
-  
-  .navbar {
-    background-color: #000; /* Franja negra */
-    color: #fff;
-    padding: 1rem;
-    font-size: 1.5rem;
-    text-align: left;
-    padding-left: 2rem;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  display: flex;
+  flex: 1;
+}
+
+.login-page-left {
+  flex: 1;
+  background: linear-gradient(to right, #957cac, #1e9e98, #b8d85f);
+  color: rgb(7, 6, 6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem;
+  text-align: left;
+}
+
+.login-page-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra el contenido verticalmente */
+  align-items: center; /* Centra el contenido horizontalmente */
+  background: url("../assets/images/login-bg.png") no-repeat center center;
+  background-size: cover;
+  position: relative;
+  padding: 2rem 0; /* Espacio adicional arriba y abajo */
+}
+
+/* Añade una capa de color detrás del formulario para mayor legibilidad */
+.login-form-container {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Sombra para oscurecer el fondo */
+.login-page-right::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 0;
+}
+
+/* Ajuste para el selector de pestañas */
+.tab-selector {
+  display: flex;
+  justify-content: center;
+  margin-bottom: -20px; /* Ajusta esta distancia para que las pestañas se superpongan ligeramente */
+  z-index: 2;
+  position: relative;
+  top: 20px;
+}
+
+.tab {
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  color: #333;
+  border: none;
+  border-radius: 5px 5px 0 0;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  margin: 0 5px;
+}
+
+.tab.active {
+  background-color: #333;
+  color: #fff;
+}
+
+/* Ajuste adicional para que el contenedor del formulario suba un poco */
+.login-form-container {
+  margin-top: 0px; /* Ajusta esta distancia según sea necesario para alinearlo con las pestañas */
+  padding-top: 40px;
+  position: relative;
+}
+
+
+/* Ajustes de responsividad */
+@media (max-width: 768px) {
   .content {
-    display: flex;
-    flex: 1;
-  }
-  
-  .login-page-left {
-    flex: 1;
-    background: linear-gradient(to right, #957cac, #1e9e98, #b8d85f); /* Fondo degradado */
-    color: rgb(7, 6, 6);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 4rem;
-    text-align: left;
-  }
-  
-  .login-page-right {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: url("../assets/images/login-bg.png") no-repeat center center;
-    background-size: cover;
-    position: relative;
-  }
-  
-  /* Añade una capa de color detrás del formulario para mayor legibilidad */
-  .login-form-container {
-    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semi-transparente */
-    padding: 2.5rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 420px;
-    text-align: center;
-    position: relative;
-    z-index: 1;
-  }
-  
-  /* Sombra para oscurecer el fondo */
-  .login-page-right::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.3); /* Oscurece un poco el fondo */
-    z-index: 0;
-  }
-  
-  .login-page-left h1 {
-    font-size: 2.8rem;
-    font-weight: bold;
-    margin-bottom: 1.5rem;
-  }
-  
-  .login-page-left p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    margin-top: 0.5rem;
-  }
-  
-  
-  @media (max-width: 768px) {
-    .content {
       flex-direction: column;
-    }
-  
-    .login-page-left,
-    .login-page-right {
+  }
+
+  .login-page-left,
+  .login-page-right {
       width: 100%;
       padding: 2rem;
-    }
   }
-  
+}

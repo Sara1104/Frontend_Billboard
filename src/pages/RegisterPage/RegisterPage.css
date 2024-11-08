@@ -1,0 +1,30 @@
+/* src/pages/RegisterPage.css */
+.register-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .tab-selector {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .tab {
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    color: #333;
+    border: none;
+    border-radius: 5px 5px 0 0;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 0 5px;
+  }
+  
+  .tab.active {
+    background-color: #333;
+    color: #fff;
+  }
+  

@@ -1,11 +1,11 @@
-// src/components/LoginForm.jsx
+// src/components/CompanyLoginForm.jsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axiosconexion from "../config/Axios";
-import "./LoginForm.css";
+import "./LoginForm.css"; // Reutilizamos los mismos estilos de LoginForm
 import { Link } from "react-router-dom";
 
-const LoginForm = () => {
+const CompanyLoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -14,9 +14,9 @@ const LoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axiosconexion.post("/User/login", {
-        email: email,
-        peoplePassword: password,
+      const response = await axiosconexion.post("/Company/loginCompany", {
+        Corporate_Email: email,
+        Password: password,
       });
       const token = response.data.token;
       
@@ -27,15 +27,15 @@ const LoginForm = () => {
       // Redirige a HomePage
       navigate("/home");
     } catch (error) {
-      setErrorMessage("Incorrect user, please try again.");
+      setErrorMessage("Incorrect company credentials, please try again.");
     }
   };
 
   return (
     <div className="login-form-container">
-      <h2 className="login-title">User Login</h2>
+      <h2 className="login-title">Company Login</h2>
       <form onSubmit={handleSubmit}>
-        <label>Email Address *</label>
+        <label>Corporate Email *</label>
         <input
           type="email"
           value={email}
@@ -61,4 +61,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default CompanyLoginForm;
