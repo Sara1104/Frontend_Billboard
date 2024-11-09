@@ -1,17 +1,28 @@
-/* src/components/RegisterCompanyForm.css */
+/* src/components/BillboardRentalForm.css */
 
-.register-page-background {
-    min-height: 100vh;
+.register-page {
+    min-height: 100vh; /* Ocupa al menos el 100% de la altura de la pantalla */
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    background: linear-gradient(135deg, #8e80db, #71c7bb, #dde692);
+    align-items: center;
+    background: linear-gradient(135deg, #8e80db, #71c7bb, #dde692); /* Fondo degradado */
     background-size: cover;
+    width: 97vw;
     overflow: hidden;
     box-sizing: border-box;
   }
   
-  .register-company-form-container {
+    
+  .register-page-background {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .register-person-form-container {
     background-color: rgba(255, 255, 255, 0.9);
     padding: 2.5rem;
     border-radius: 12px;
@@ -25,6 +36,7 @@
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 1.5rem;
+    text-align: center;
   }
   
   .input-group {
@@ -40,12 +52,18 @@
     margin-bottom: 0.5rem;
   }
   
-  .input-group input {
+  .input-group input,
+  .input-group textarea {
     width: 100%;
     padding: 0.8rem;
     border: 1px solid #ccc;
     border-radius: 6px;
     box-sizing: border-box;
+    font-size: 1rem;
+  }
+  
+  textarea {
+    resize: vertical; /* Permite ajustar el tamaño vertical del textarea */
   }
   
   button {
@@ -78,6 +96,10 @@
     margin-top: 1rem;
     text-align: center;
   }
- 
   
+  /* Estilos adicionales para checkbox */
+  .input-group input[type="checkbox"] {
+    width: auto;
+    margin-right: 8px;
+  }
   

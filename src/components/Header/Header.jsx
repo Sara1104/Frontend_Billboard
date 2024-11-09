@@ -13,7 +13,9 @@ const Header = () => {
 
   return (
     <header className="header">
-      <div className="logo">Rent-A-Valla</div>
+      <div className="logo" onClick={() => navigate("/home")}> {/* Logo que redirige a Home */}
+        Rent-A-Valla
+      </div>
       <UserMenu onLogout={handleLogout} />
     </header>
   );

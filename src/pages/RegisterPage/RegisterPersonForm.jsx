@@ -1,4 +1,4 @@
-// src/components/PersonRegisterForm.jsx
+// src/pages/RegisterPage/PersonRegisterForm.jsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axiosconexion from "../../config/Axios";
@@ -30,14 +30,15 @@ const PersonRegisterForm = () => {
     e.preventDefault();
     try {
       const response = await axiosconexion.post("/Person", formData);
-      const { idPeople } = response.data;
-
+      console.log("Full Response:", response); // Agrega esto para ver la respuesta completa
+      const { idPeople } = response.data; // data tenga el idPeople
+  
       if (idPeople) {
         setSuccessMessage("Person successfully registered.");
         setErrorMessage("");
         
         localStorage.setItem("peopleId", idPeople);
-
+  
         setTimeout(() => {
           navigate(`/set-password`);
         }, 2000);
@@ -45,14 +46,16 @@ const PersonRegisterForm = () => {
         throw new Error("Failed to retrieve person ID.");
       }
     } catch (error) {
+      console.error("Error:", error.response?.data || error.message);
       setErrorMessage("Failed to register the person. Please try again.");
       setSuccessMessage("");
     }
   };
+  
+  
 
   return (
     <div className="register-page-background">
-        
       {/* Registration Form */}
       <div className="register-person-form-container">
         <form onSubmit={handleSubmit} className="form-container">

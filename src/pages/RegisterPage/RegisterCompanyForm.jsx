@@ -32,7 +32,7 @@ const RegisterCompanyForm = () => {
       setErrorMessage("");
       
       setTimeout(() => {
-        navigate("/login");
+        navigate("/home");
       }, 2000);
     } catch (error) {
       setErrorMessage("Failed to register company. Please try again.");

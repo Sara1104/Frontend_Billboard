@@ -17,4 +17,13 @@
     cursor: pointer;
     color: #fff;
   }
+
+  /* src/components/Header/Header.css */
+
+  .header .logo {
+  cursor: pointer; /* Muestra que el logo es clickeable */
+  font-weight: bold;
+  color: #fff;
+  }
+
   

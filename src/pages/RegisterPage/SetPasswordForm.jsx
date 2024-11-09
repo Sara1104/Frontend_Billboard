@@ -1,4 +1,4 @@
-// src/components/SetPasswordForm.jsx
+// src/pages/RegisterPage/SetPasswordForm.jsx
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axiosconexion from "../../config/Axios";
@@ -17,6 +17,9 @@ const SetPasswordForm = () => {
   useEffect(() => {
     if (!peopleId) {
       setErrorMessage("No person ID found. Please register again.");
+      console.warn("No peopleId found in localStorage");
+    } else {
+      console.log("peopleId retrieved from localStorage:", peopleId); // Debug log
     }
   }, [peopleId]);
 
@@ -29,7 +32,7 @@ const SetPasswordForm = () => {
 
     try {
       const response = await axiosconexion.post("/User", {
-        peopleId: parseInt(peopleId), // Asegúrate de que es numérico
+        peopleId: parseInt(peopleId, 10), // Convertimos a número de manera explícita
         peoplePassword: peoplePassword,
       });
 
@@ -37,13 +40,12 @@ const SetPasswordForm = () => {
         setSuccessMessage("Password set successfully!");
         setErrorMessage("");
 
-        // Redirige al login después de 2 segundos
         setTimeout(() => {
           navigate("/login");
         }, 2000);
       }
     } catch (error) {
-      console.error("Error en la solicitud:", error.response?.data || error.message);
+      console.error("Error en la solicitud:", error.response?.data || error.message); // Debug log
       setErrorMessage("Failed to set password. Please try again.");
     }
   };
