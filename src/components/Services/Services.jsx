@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Services.css";
 
 const services = [
@@ -13,9 +14,9 @@ const Services = () => {
       <h2>Services</h2>
       <div className="services-grid">
         {services.map((service, index) => (
-          <a key={index} href={service.link} className="service-card">
+          <Link key={index} to={service.link} className="service-card">
             {service.title}
-          </a>
+          </Link>
         ))}
       </div>
     </div>
