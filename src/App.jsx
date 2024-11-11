@@ -19,7 +19,7 @@ function App() {
           <Route path="/home" element={<ProtectedRoute><HomePage /></ProtectedRoute>} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} /> 
-          <Route path="/set-password/:userId" element={<SetPasswordForm />} />
+          <Route path="/set-password" element={<SetPasswordForm />} />
           <Route path="/create-billboard" element={<ProtectedRoute><BillboardRegisterForm /></ProtectedRoute>} />
           <Route path="/create-billboard-rental" element={<ProtectedRoute><BillboardRentalForm /></ProtectedRoute>} />
           <Route path="*" element={<Navigate to="/login" />} />

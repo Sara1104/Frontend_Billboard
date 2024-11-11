@@ -51,27 +51,29 @@ const SetPasswordForm = () => {
   };
 
   return (
-    <div className="set-password-form-container">
-      <h2>Set Your Password</h2>
-      <form onSubmit={handleSubmit}>
-        <label>New Password *</label>
-        <input
-          type="password"
-          value={peoplePassword}
-          onChange={(e) => setPeoplePassword(e.target.value)}
-          required
-        />
-        <label>Confirm Password *</label>
-        <input
-          type="password"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          required
-        />
-        {successMessage && <p className="success-message">{successMessage}</p>}
-        {errorMessage && <p className="error-message">{errorMessage}</p>}
-        <button type="submit">Set Password</button>
-      </form>
+    <div className="register-page">
+      <div className="register-person-form-container">
+        <h2>Set Your Password</h2>
+        <form onSubmit={handleSubmit} className="form-container">
+          <label>New Password *</label>
+          <input
+            type="password"
+            value={peoplePassword}
+            onChange={(e) => setPeoplePassword(e.target.value)}
+            required
+          />
+          <label>Confirm Password *</label>
+          <input
+            type="password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            required
+          />
+          {successMessage && <p className="success-message">{successMessage}</p>}
+          {errorMessage && <p className="error-message">{errorMessage}</p>}
+          <button type="submit">Set Password</button>
+        </form>
+      </div>
     </div>
   );
 };

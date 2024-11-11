@@ -30,36 +30,36 @@ const PersonRegisterForm = () => {
     e.preventDefault();
     try {
       const response = await axiosconexion.post("/Person", formData);
-      console.log("Full Response:", response); // Agrega esto para ver la respuesta completa
-      const { idPeople } = response.data; // data tenga el idPeople
+  
+      // Extraemos el ID de la persona desde la respuesta
+      const idPeople = response.data;
   
       if (idPeople) {
         setSuccessMessage("Person successfully registered.");
         setErrorMessage("");
         
+        // Guarda el `idPeople` en `localStorage`
         localStorage.setItem("peopleId", idPeople);
   
+        // Redirige a la página para establecer la contraseña
         setTimeout(() => {
-          navigate(`/set-password`);
+          navigate("/set-password");
         }, 2000);
       } else {
         throw new Error("Failed to retrieve person ID.");
       }
     } catch (error) {
-      console.error("Error:", error.response?.data || error.message);
       setErrorMessage("Failed to register the person. Please try again.");
       setSuccessMessage("");
     }
-  };
-  
-  
+  };  
 
   return (
     <div className="register-page-background">
       {/* Registration Form */}
       <div className="register-person-form-container">
         <form onSubmit={handleSubmit} className="form-container">
-          <h2>Person Registration</h2>
+          <h2>User Registration</h2>
           
           <div className="input-group">
             <label>First Name:</label>
