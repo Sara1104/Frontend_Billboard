@@ -1,13 +1,15 @@
 // src/components/ProtectedRoute.jsx
-import React from "react";
+import { useUser } from "../context/UserContext";
 import { Navigate } from "react-router-dom";
 
 const ProtectedRoute = ({ children }) => {
-  // Verifica si el token existe en el localStorage
-  const isAuthenticated = localStorage.getItem("token") !== null;
+    const { user } = useUser();
 
-  // Si no está autenticado, redirige al login
-  return isAuthenticated ? children : <Navigate to="/login" />;
+    if (!user) {
+        return <Navigate to="/login" />;
+    }
+
+    return children;
 };
 
 export default ProtectedRoute;

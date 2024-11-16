@@ -16,7 +16,7 @@
   background-color: #333;
   color: #fff;
   border-radius: 8px;
-  padding: 10px;
+  padding: 9px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -27,7 +27,7 @@
 }
 
 .menu-dropdown li {
-  padding: 8px 16px;
+  padding: 6px 16px;
   cursor: pointer;
 }
 

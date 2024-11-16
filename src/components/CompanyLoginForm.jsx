@@ -2,10 +2,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axiosconexion from "../config/Axios";
+import { useUser } from "../context/UserContext"; // Importar el contexto de usuario
 import "./LoginForm.css"; // Reutilizamos los mismos estilos de LoginForm
 import { Link } from "react-router-dom";
 
 const CompanyLoginForm = () => {
+  const { login } = useUser(); // Obtener la función login del contexto
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -18,14 +20,24 @@ const CompanyLoginForm = () => {
         Corporate_Email: email,
         Password: password,
       });
-      const token = response.data.token;
-      
-      // Guarda el token en localStorage
-      localStorage.setItem("token", token);
 
-      setErrorMessage("");
-      // Redirige a HomePage
-      navigate("/home");
+      // Verifica que la respuesta tenga la información necesaria
+      if (response.data && response.data.company) {
+        const companyData = {
+          id: response.data.company.idCompany,
+          token: response.data.token,
+          accountType: "company", // Especificar el tipo de cuenta como compañía
+        };
+
+        // Llamar a la función login del contexto para guardar los datos de la compañía
+        login(companyData);
+
+        setErrorMessage("");
+        // Redirige a HomePage
+        navigate("/home");
+      } else {
+        setErrorMessage("Unexpected response format. Please try again.");
+      }
     } catch (error) {
       setErrorMessage("Incorrect company credentials, please try again.");
     }

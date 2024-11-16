@@ -21,8 +21,8 @@ const UserMenu = ({ onLogout }) => {
         <div className="menu-dropdown">
           <ul>
             <li onClick={() => navigate("/home")}>Home</li> {/* Nueva opción para ir a Home */}
-            <li>Profile</li>
-            <li>Settings</li>
+            <li onClick={() => navigate("/profile")}>Options</li>
+            <li onClick={() => navigate("/settings")}>Settings</li>
             <li onClick={onLogout}>Logout</li>
           </ul>
         </div>
